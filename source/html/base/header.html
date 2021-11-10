@@ -1,6 +1,10 @@
 <header class="header @@if (context.mod) { header--@@mod }">
   <div class="header__wrapper">
     <a class="header__logo" @@if (!context.main) { href="index.html"} aria-label="Переход на главную">
+      @@include("source/html/components/logo.html", {
+        "width": "192",
+        "height": "24",
+      })
     </a>
   </div>
 </header>

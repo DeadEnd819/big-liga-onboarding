@@ -13,10 +13,29 @@
   </div>
 
   <div class="wrapper">
-    @@include("source/html/base/header.html")
+    @@include("source/html/base/header.html", {"main": true})
 
     <main>
       <div class="container">
+        <section class="intro" data-intro>
+          <div class="intro__row">
+            <div class="intro__col intro__col--left">
+              <h1 class="intro__title">Вёрстка и&nbsp;фронтенд любой сложности</h1>
+            </div>
+            <div class="intro__col intro__col--right intro__col--hide" data-content>
+              <div class="intro__content">
+                @@include("source/html/components/lizard-bg.html", {
+                "width": "316",
+                "height": "289",
+                })
+
+                <div class="intro__text">
+                  <p>для digital‑агентств, продуктовых компаний и&nbsp;фриланс‑команд</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </main>
 

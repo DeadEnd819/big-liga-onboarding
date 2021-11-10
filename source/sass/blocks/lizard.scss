@@ -1,0 +1,23 @@
+.lizard__color-el-1,
+.lizard__color-el-2,
+.lizard__color-el-3 {
+  fill: $color-default-white;
+}
+
+.lizard__color-el-1 {
+  @include viewport--lg {
+    fill: $color-neon-blue;
+  }
+}
+
+.lizard__color-el-2 {
+  @include viewport--lg {
+    fill: $color-vivid-violet;
+  }
+}
+
+.lizard__color-el-3 {
+  @include viewport--lg {
+    fill: $color-torch-red;
+  }
+}
