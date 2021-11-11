@@ -1,0 +1,101 @@
+.logo-svg {
+  perspective: 100px;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.logo-svg--assembling {
+  .logo-svg__el-1 {
+    animation: drop 3s ease-in-out;
+  }
+
+  .logo-svg__el-2 {
+    animation: left-visible 3s ease-in-out;
+  }
+
+  .logo-svg__el-3 {
+    animation: right-visible 3s ease-in-out;
+  }
+}
+
+.logo-svg--loading {
+  .logo-svg__el-1 {
+    animation: rotate 5s ease-in-out infinite;
+  }
+}
+
+.logo-svg__el-1 {
+  transform-origin: 52%;
+  //animation: drop-infinite 3s infinite ease-in;
+}
+
+.logo-svg__el-2 {
+  transform-origin: 0;
+}
+
+.logo-svg__el-3 {
+  transform-origin: 100%;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateY(0deg) translate3d(0, 0, 0);
+  }
+
+  40%,
+  50% {
+    transform: rotateY(360deg) translate3d(0, 0, -50px);
+  }
+
+  80%,
+  100% {
+    transform: rotateY(0deg) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes drop {
+  0% {
+    transform: translate3d(0, -50px, 0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes drop-infinite {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotateX(0) scaleY(1);
+  }
+
+  50% {
+    transform: translate3d(0, -50px, -10px) rotateX(10deg) scaleY(1.1);
+  }
+}
+
+@keyframes left-visible {
+  0% {
+    transform: scale(1.1)  translate3d(-50px, -10px, 0) rotate(-4deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1) translate3d(0, 0, 0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes right-visible {
+  0% {
+    transform: scale(1.1)  translate3d(50px, -10px, 0) rotate(4deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1) translate3d(0, 0, 0) rotate(0deg);
+    opacity: 1;
+  }
+}

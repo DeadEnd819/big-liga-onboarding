@@ -1,0 +1,91 @@
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  background-color: $color-default-white;
+
+  transition: transform 0.6s linear;
+
+  svg {
+    display: block;
+    width: 550px;
+    height: 70px;
+    margin: auto;
+
+    @include viewport--lg {
+      width: 800px;
+      height: 100px;
+    }
+  }
+}
+
+.loader--hide {
+  @include hide;
+}
+
+.loader__message {
+  position: absolute;
+  left: 50%;
+  bottom: 100px;
+
+  font-size: 24px;
+  line-height: 1.1;
+
+  transition: opacity $default-transition-settings;
+  transform: translateX(-50%);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.loader__message--active {
+  opacity: 1;
+
+  .loader__text {
+    animation: text-scale 3s linear infinite;
+  }
+}
+
+.loader__text {
+  backface-visibility: hidden;
+
+  &--hide-to-tablet {
+    display: none;
+
+    @include viewport--lg {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  &--hide-to-desktop {
+    display: inline-block;
+    vertical-align: middle;
+
+    @include viewport--lg {
+      display: none;
+    }
+  }
+}
+
+@keyframes text-scale {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.02) translate(-0.2em);
+    text-shadow:
+      0 0 0 hsla(0, 0%, 50%, 0.5),
+      0 1px 1px hsla(0, 0%, 30%, 0.6),
+      0 2px 2px hsla(0, 0%, 30%, 0.7),
+      0 3px 3px hsla(0, 0%, 32%, 0.8);
+  }
+}

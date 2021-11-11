@@ -59,4 +59,9 @@
 
 @mixin reset-text {
   margin: 0;
+  padding: 0;
+}
+
+@mixin hide {
+  transform: translateX(-100%);
 }

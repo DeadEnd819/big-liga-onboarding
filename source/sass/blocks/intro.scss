@@ -1,5 +1,5 @@
 .intro {
-  height: calc(100vh - 80px);
+  height: calc(100vh - 74px);
 
   user-select: none;
 
@@ -96,7 +96,7 @@
   }
 
   &--hide {
-    transform: translateX(-100%);
+    @include hide;
 
     @include viewport--lg {
       transform: none;

@@ -1,0 +1,14 @@
+.a-bg {
+  display: none;
+
+  @include viewport--lg {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    z-index: -1;
+
+    display: block;
+
+    transform: translateX(-50%);
+  }
+}
