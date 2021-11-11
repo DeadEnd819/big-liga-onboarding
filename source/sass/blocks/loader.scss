@@ -11,7 +11,7 @@
 
   background-color: $color-default-white;
 
-  transition: transform 0.6s linear;
+  transition: transform 0.6s ease-in-out;
 
   svg {
     display: block;
@@ -48,7 +48,7 @@
   opacity: 1;
 
   .loader__text {
-    animation: text-scale 3s linear infinite;
+    animation: text-opacity 3s linear infinite;
   }
 }
 
@@ -74,18 +74,13 @@
   }
 }
 
-@keyframes text-scale {
+@keyframes text-opacity {
   0%,
   100% {
-    transform: scale(1);
+    opacity: 0;
   }
 
   50% {
-    transform: scale(1.02) translate(-0.2em);
-    text-shadow:
-      0 0 0 hsla(0, 0%, 50%, 0.5),
-      0 1px 1px hsla(0, 0%, 30%, 0.6),
-      0 2px 2px hsla(0, 0%, 30%, 0.7),
-      0 3px 3px hsla(0, 0%, 32%, 0.8);
+    opacity: 1;
   }
 }

@@ -9,6 +9,21 @@
 
     display: block;
 
+    stroke: rgba($color-default-black, 0.02);
+
     transform: translateX(-50%);
+
+    animation: blink 10s ease-in-out infinite;
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    stroke: rgba($color-default-black, 0.02);
+  }
+
+  50% {
+    stroke: rgba($color-vivid-violet, 0.1);
   }
 }

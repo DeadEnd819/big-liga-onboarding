@@ -1,5 +1,5 @@
 .intro {
-  height: calc(100vh - 74px);
+  height: calc(100 * var(--vh, 1vh) - var(--header-height));
 
   user-select: none;
 
@@ -18,6 +18,11 @@
   line-height: 1;
 
   color: $color-neon-blue;
+
+  &--no-visible {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
 }
 
 .intro__text {
@@ -38,6 +43,16 @@
   p:not(:last-child) {
     margin-bottom: 16px;
   }
+
+  &--no-visible {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+}
+
+.intro__title,
+.intro__text {
+  transition: transform 0.5s ease 0.5s, opacity 0.5s ease 0.5s;
 }
 
 .intro__row {
@@ -59,7 +74,7 @@
 .intro__col {
   height: 100%;
 
-  transition: transform $default-transition-settings;
+  transition: transform 0.6s ease-in-out;
   cursor: pointer;
 
   @include viewport--lg {
@@ -87,11 +102,11 @@
     background-color: $color-neon-blue;
 
     @include viewport--lg {
-      position: relative;
+      position: static;
 
       padding: 46px 0 0;
 
-      background-color: $color-default-white;
+      background-color: transparent;
     }
   }
 

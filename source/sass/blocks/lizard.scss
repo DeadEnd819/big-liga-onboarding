@@ -1,23 +1,77 @@
-.lizard__color-el-1,
-.lizard__color-el-2,
-.lizard__color-el-3 {
+.lizard {
+  perspective: 100px;
+}
+
+.lizard--no-visible {
+  .lizard__body {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  .lizard__lightning {
+    transform: translate3d(73px, 100px, 0) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.lizard__body,
+.lizard__lightning,
+.lizard__flag,
+.lizard__roar {
+  transition: transform 0.5s ease 0.5s, opacity 0.5s ease 0.5s;
+}
+
+.lizard__lightning,
+.lizard__flag,
+.lizard__roar {
   fill: $color-default-white;
-}
 
-.lizard__color-el-1 {
-  @include viewport--lg {
-    fill: $color-neon-blue;
+  &--neon {
+    @include viewport--lg {
+      fill: $color-neon-blue;
+    }
+  }
+
+  &--violet {
+    @include viewport--lg {
+      fill: $color-vivid-violet;
+    }
+  }
+
+  &--red {
+    @include viewport--lg {
+      fill: $color-torch-red;
+    }
   }
 }
 
-.lizard__color-el-2 {
+.lizard__flag {
+  stroke: $color-default-black;
+
+  animation: wind 5s linear infinite;
+
   @include viewport--lg {
-    fill: $color-vivid-violet;
+    stroke: transparent;
   }
 }
 
-.lizard__color-el-3 {
-  @include viewport--lg {
-    fill: $color-torch-red;
+.lizard__roar {
+  animation: roar-opacity 1.5s ease-in-out infinite;
+}
+
+@keyframes roar-opacity {
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes wind {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) skewY(0deg);
+  }
+
+  50% {
+    transform: translate3d(0, -20px, 0) skewY(7deg);
   }
 }
